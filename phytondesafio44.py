@@ -13,38 +13,31 @@ desconto
 - 3x ou mais no cartão: 20% de juros
 '''
 print(' ')
-a = float(input('valor a pagar ? : R$ '))
+preço = float(input('preço das compras: R$ '))
+print('''
+	[1] a vista no dinheiro
+	[2] a vista no cartão
+	[3] em ate 2x no cartão
+	[4] 3x ou mais no cartão
+	''')
+opiçao = int(input('qual e a opiçao: '))
 print(' ')
-b = input('''[1] a vista no dinheiro/cheque \n[2] a vista no cartão \n[3] em ate 2x no cartão \n[4] 3x ou mais no cartão 
-\nqual meio de pagamento ? : ''' )
-c = a * (10/100)
-d = a * (5/100)
-e = ((20/100) * a) / 3
-ea = ((20/100) * a) / 4
-eb = ((20/100) * a) / 5
-ec = ((20/100) * a) / 6
-f = a / 2
-z = input('em quantas vezes ? : ' )
-print(' ')
-#print('{}'format(b))
-if b == 1:
-    print('o valor a pagar agora e R${} '.format(c))
-elif b == 2:
-    print('o valor a pagar agora e R${} '.format(d))   
-elif b == 3:
-    print('o valor a pagar e 2x de R${}  '.format(f))           	
-elif b == 4:
-    print(f'{z}')
-else:
-    print(' ')    
-          
-if z == 3:
-    print('o valor a pagar agora e R${} '.format(e))
-elif z == 4:
-    print('o valor a pagar agora e R${} '.format(ea))    
-elif z == 5:
-    print('o valor a pagar agora e R${} '.format(eb))        
-elif z == 6:
-    print('o valor a pagar agora e R${} '.format(ec))   
-else:
-    print(' ')   
+if opiçao == 1:
+    total = preço - (preço * 10 / 100)
+elif opiçao == 2:
+    total = preço - (preço * 5 / 100)
+elif opiçao == 3:
+    total = preço
+    parcela = total / 2
+    print('sua compra sera parcelada em 2x de R${} '.format(parcela))
+elif opiçao == 4:
+    total = preço + (preço * 20 / 100)
+    totparc = int(input('quantas parcelas ? : '))
+    parcelas = total / totparc
+    print('sua compra sera parcelada em {}x de R${:.2f} '.format(totparc, parcelas))
+print('sua compra de {:.2f} vai custar {:.2f} \nno final'.format(preço, total))     
+    
+    
+    
+    
+    
